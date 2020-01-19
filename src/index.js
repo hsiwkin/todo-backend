@@ -1,5 +1,6 @@
 const app = require("express")();
 const path = require("path");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const connect = require("./loaders/db");
@@ -9,6 +10,7 @@ require("dotenv").config({
 });
 
 app.use(bodyParser.json());
+app.use(cors());
 require("./routes/task.router")(app);
 
 (async () => {
